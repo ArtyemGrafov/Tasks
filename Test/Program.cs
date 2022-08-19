@@ -1,8 +1,6 @@
 ﻿Console.Clear();
 
-int num = getInt();
-
-int n = getLength(num);
+int len = getLength(getInt());
 
 int getInt()
 {
@@ -18,13 +16,35 @@ int getInt()
 int getLength(int n)
 {
     int result = 0;
-    while (num > 0)
+    while (n > 0)
     {
-        num /= 10;
+        n /= 10;
         ++result;
     }
 
     return result;
 }
 
-Console.WriteLine($"Количество цифр = {n}");
+Console.WriteLine($"Количество цифр = {len}");
+
+// int len = Factorial(getInt());
+
+// int getInt()
+// {
+//     Console.Write("Введи число : ");
+//     while(true)
+//     {
+//         if (int.TryParse(Console.ReadLine(), out int result))
+//             return result;
+//         Console.WriteLine("Error");
+//     }
+// }
+
+// int Factorial(int n)
+// {
+//     if (n == 1) return 1;
+ 
+//     return n * Factorial(n - 1);
+// }
+
+// Console.WriteLine($"Факториал = {len}");
