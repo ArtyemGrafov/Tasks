@@ -13,7 +13,7 @@ int[] array = GetRandomArray(length, minValElem, maxValElem);
 evenNumbers  = GetEvenNumbers(array);
 
 Console.WriteLine($"[{string.Join(", ", array)}]");
-Console.WriteLine(evenNumbers);
+Console.WriteLine("Количество чётных чисел в массиве : " + evenNumbers);
 
 
 // ************************************************//
