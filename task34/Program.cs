@@ -38,7 +38,7 @@ int[] GetRandomArray(int size, int min, int max)
 
     for (int i = 0; i < size; i++)
     {
-        array[i] = random.Next(minValElem, maxValElem + 1);
+        array[i] = random.Next(min, max + 1);
     }
     return array;
 }
