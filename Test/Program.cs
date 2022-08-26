@@ -41,38 +41,89 @@
 
 
 int n = GetInt("Input n : ");
+//int m = GetInt("Input m : ");
 
-int[] array = GetRandomArray(n, 0, 100);
+int[,] array = GetRandomArray(n, n, 2, 9);
 
-int[] arrayCopy = CopyArray(array);
+PrintArray(array);
+
+// Console.WriteLine();
+
+// ModArray(array);
+
+// PrintArray(array);
+
+GetSum(array);
+
+void GetSum(int[,] arr)
+{
+    int sum = 0;
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            if (i == j) sum += arr[i, j];
+        }
+        
+    }
+    Console.WriteLine("Сумма элементов главной диагонали " + sum);
+}
+
+void PrintArray(int[,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            Console.Write(arr[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void ModArray(int[,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            if (i % 2 == 0 && j % 2 == 0) arr[i, j] *= arr[i, j];
+        }
+    }
+}
+
+//int[] arrayCopy = CopyArray(array);
 
 //array[0] = 1000;
 
-Console.WriteLine($"[{string.Join(", ", array)}]");
-Console.WriteLine($"[{string.Join(", ", arrayCopy)}]");
-array[0] = 1000;
-Console.WriteLine($"[{string.Join(", ", array)}]");
+// Console.WriteLine($"[{string.Join(", ", array)}]");
+// Console.WriteLine($"[{string.Join(", ", arrayCopy)}]");
+// array[0] = 1000;
+// Console.WriteLine($"[{string.Join(", ", array)}]");
 
 
-int[] CopyArray(int[] arr)
+// int[] CopyArray(int[] arr)
+// {
+//     int[] res = new int[arr.Length];
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         res[i] = arr[i];
+//     }
+//     return res;
+// }
+
+int[,] GetRandomArray(int n, int m, int min, int max)
 {
-    int[] res = new int[arr.Length];
-    for (int i = 0; i < arr.Length; i++)
-    {
-        res[i] = arr[i];
-    }
-    return res;
-}
-
-int[] GetRandomArray(int size, int min, int max)
-{
-    int[] array = new int[size];
+    int[,] array = new int[n, m];
 
     Random random = new Random();
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
     {
-        array[i] = random.Next(min, max + 1);
+        for (int j = 0; j < m; j++)
+        {
+            array[i, j] = random.Next(min, max + 1);
+        }
     }
     return array;
 }
