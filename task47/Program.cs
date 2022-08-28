@@ -43,7 +43,7 @@ double[,] GetRandomArray(int rows, int coloumns, int minValue, int maxValue)
 
 void PrintArray(double[,] arr)
 {
-    
+    Console.WriteLine("Array : ");
     for (int i = 0; i < arr.GetLength(0); i++)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
