@@ -1,73 +1,21 @@
 ﻿Console.Clear();
 
-// int a = GetInt("Input a : ");
-// int b = GetInt("Input b : ");
-// int c = GetInt("Input c : ");
-
-// if (a < b + c & b < a + c & c < a + b) Console.Write("Yes");
-// else Console.Write("NO");
-
-
-// int a1 = 0;
-// int a2 = 1;
-
-// int i = Convert.ToInt32(n);
-
-// String s = Convert.ToString(i, 2);
-// Console.WriteLine(s);
-
-// String res = String.Empty;
-
-// do 
-// {
-//     //Console.Write(n % 2);
-//     res += n % 2;
-//     n /= 2;
-// }
-// while (n > 0);
-
-// Console.Write(res.Reverse().ToArray());
-
-// Console.Write(a1 + " " + a2 + " ");
-
-// for (int i = 0; i < n - 2; i++)
-// {
-//     int a3 = a1 + a2;
-//     Console.Write(a3 + " ");
-//     a1 = a2;
-//     a2 = a3;
-// }
-
-
-
 int n = GetInt("Input n : ");
-//int m = GetInt("Input m : ");
+int m = GetInt("Input m : ");
 
-int[,] array = GetRandomArray(n, n, 2, 9);
+// if (m == n)
+// {
+    int[,] array = GetRandomArray(n, m, 1, 9);
+    PrintArray(array);
+    Console.WriteLine();
+    ModArray(array);
+    PrintArray(array);
+// }
+// else
+// {
+//     Console.WriteLine("Mission unimposible");
+// }
 
-PrintArray(array);
-
-// Console.WriteLine();
-
-// ModArray(array);
-
-// PrintArray(array);
-
-GetSum(array);
-
-void GetSum(int[,] arr)
-{
-    int sum = 0;
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            if (i == j) sum += arr[i, j];
-        }
-        
-    }
-    Console.WriteLine("Сумма элементов главной диагонали " + sum);
-}
 
 void PrintArray(int[,] arr)
 {
@@ -81,16 +29,32 @@ void PrintArray(int[,] arr)
     }
 }
 
+// void ModArray(int[,] arr)
+// {
+//     for (int i = 0; i < arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < i; j++)
+//         {
+//             if (i != j)
+//             {
+//                 int tmp = arr[i, j];
+//                 arr[i, j] = arr[j, i];
+//                 arr[j, i] = tmp;
+//             }
+//         }
+//     }
+// }
+
 void ModArray(int[,] arr)
 {
-    for (int i = 0; i < arr.GetLength(0); i++)
+    for (int i = 0; i < arr.GetLength(1); i++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            if (i % 2 == 0 && j % 2 == 0) arr[i, j] *= arr[i, j];
-        }
+        int tmp = arr[0, i];
+        arr[0, i] = arr[arr.GetUpperBound(0), i];
+        arr[arr.GetUpperBound(0), i] = tmp;
     }
 }
+
 
 //int[] arrayCopy = CopyArray(array);
 
