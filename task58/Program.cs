@@ -16,12 +16,11 @@
 // https://ru.onlinemschool.com/math/assistance/matrix/multiply/
 
 Console.Clear();
-Console.Write("Enter type realize (t = test/r = random): ");
+Console.Write("Enter type of realization (t = test/r = random): ");
 string realize = Console.ReadLine() ?? "";
 int[,] arrayA;
 int[,] arrayB;
 int[,] result;
-
 
 switch (realize)
 {
