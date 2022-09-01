@@ -4,14 +4,11 @@
 
 Console.Clear();
 
-int n = GetInt("enter n: ");
-int m = GetInt("enter m: ");
+int minNum = GetInt("enter min num : ");
+int maxNum = GetInt("enter max num : ");
 
-int[] arrIter = GetArrayIter(n, m);
-Console.Write($"\"\"{String.Join(", ", arrIter)}\"\"");
-
-int[] arrRec = GetArrayRec(n, m);
-Console.Write($"\"\"{String.Join(", ", arrRec)}\"\"");
+int[] array = GetArrayIter(minNum, maxNum);
+Console.WriteLine($"\"\"{String.Join(", ", array)}\"\"");
 
 //*****************************************************************************************//
 
@@ -27,17 +24,6 @@ int GetInt(string msg)
 }
 
 int[] GetArrayIter(int min, int max)
-{
-    int[] result = new int[max - min + 1];
-    for (int i = 0; i < result.Length; i++)
-    {
-        result[i] = min;
-        min++;
-    }
-    return result;
-}
-
-int[] GetArrayRec(int min, int max)
 {
     int[] result = new int[max - min + 1];
     for (int i = 0; i < result.Length; i++)
