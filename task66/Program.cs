@@ -3,9 +3,25 @@
 // M = 4; N = 8. -> 30
 Console.Clear();
 
+Console.Write("Select method (i - iterative/r - recursive): ");
+String mod = Console.ReadLine() ?? "";
 int n = GetInt("enter n: ");
 int m = GetInt("enter m: ");
-Console.Write("Result : " + GetSum(n, m));
+
+switch (mod)
+{
+    case "i":
+    Console.WriteLine("Iterative method result: " + GetSumIter(n, m));
+    break;
+    case "r":
+    Console.WriteLine("Recursive method result: " + GetSumRec(n, m));
+    break;
+    default: 
+    Console.WriteLine("Incorrect input");
+    break;
+}
+
+
 
 //*****************************************************************************************//
 
@@ -20,9 +36,16 @@ int GetInt(string msg)
     }
 }
 
-int GetSum(int a, int b)
+int GetSumIter(int a, int b)
 {
     int res = 0;
     for (int i = a; i <= b; i++) res += i;
     return res;
+}
+
+int GetSumRec(int n, int m)
+{
+    if (n == m) return m;
+ 
+    return n + GetSumRec(n + 1, m);
 }
