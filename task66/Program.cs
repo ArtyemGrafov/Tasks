@@ -21,7 +21,14 @@ switch (mod)
     break;
 }
 
+// var sumBetween = (int x, int y) =>
+// {
+//     int res = 0;
+//     for (int i = x; i <= y; i++) res += i;
+//     return res;
+// };
 
+// Console.WriteLine("sumBetween : " + sumBetween(n, m));
 
 //*****************************************************************************************//
 
@@ -45,7 +52,6 @@ int GetSumIter(int a, int b)
 
 int GetSumRec(int n, int m)
 {
-    if (n == m) return m;
- 
+    if (n == m) return m; 
     return n + GetSumRec(n + 1, m);
 }
