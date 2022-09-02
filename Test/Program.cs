@@ -14,14 +14,18 @@
 //     return num * GetPow(num, rank - 1);
 // }
 
-// Console.WriteLine("Sum digits : " + GetSumDigits(n));
+Console.Clear();
+Console.Write("Enter n : ");
+int n = int.Parse(Console.ReadLine() ?? "");
+Console.WriteLine("Sum digits : " + GetSumDigits(n));
 
-// int GetSumDigits(int num)
-// {
-//     if (num / 10 == 0) return num % 10;
-//     else 
-//         return GetSumDigits(num % 10) + GetSumDigits(num / 10);
-// }
+int GetSumDigits(int num)
+{
+    if (num / 10 == 0) 
+        return num % 10;
+    else 
+        return num % 10 + GetSumDigits(num / 10);
+}
 
 
 
