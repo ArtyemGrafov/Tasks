@@ -21,10 +21,8 @@ Console.WriteLine("Sum digits : " + GetSumDigits(n));
 
 int GetSumDigits(int num)
 {
-    if (num / 10 == 0) 
-        return num % 10;
-    else 
-        return num % 10 + GetSumDigits(num / 10);
+    if (num < 10) return num;
+    return num % 10 + GetSumDigits(num / 10);
 }
 
 
@@ -36,5 +34,5 @@ int GetSumDigits(int num)
 // string GetPrint(int start, int end) 
 // {
 //     if (start == end) return end.ToString();
-//     return start + ", " + GetPrint(start + 1, end);
-// }
+//  p   return start + ", " + GetPrint(start + 1, end);
+// }pp==
